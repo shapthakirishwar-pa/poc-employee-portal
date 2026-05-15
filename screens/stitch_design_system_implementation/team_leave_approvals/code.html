@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manager Leave Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Geist:wght@400;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-primary-fixed": "#131b2e",
+                        "surface-tint": "#565e74",
+                        "on-surface-variant": "#45464d",
+                        "on-error": "#ffffff",
+                        "on-background": "#1b1b1d",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1b1b1d",
+                        "pending": "#F59E0B",
+                        "inverse-primary": "#bec6e0",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#131b2e",
+                        "secondary-fixed": "#d3e4fe",
+                        "outline-variant": "#c6c6cd",
+                        "on-secondary-container": "#54647a",
+                        "surface-dim": "#dcd9db",
+                        "text-muted": "#94A3B8",
+                        "border": "#E2E8F0",
+                        "surface-bright": "#fcf8fa",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#fcdeb5",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "inverse-surface": "#303032",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f6f3f5",
+                        "on-tertiary-container": "#98805d",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "primary-fixed": "#dae2fd",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "inverse-on-surface": "#f3f0f2",
+                        "background": "#F8FAFC",
+                        "surface-variant": "#e4e2e4",
+                        "text-primary": "#0F172A",
+                        "secondary-container": "#d0e1fb",
+                        "error": "#EF4444",
+                        "surface-container-highest": "#e4e2e4",
+                        "surface-container": "#f0edef",
+                        "info": "#3B82F6",
+                        "primary": "#000000",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-container-high": "#eae7e9",
+                        "on-primary-container": "#7c839b",
+                        "tertiary": "#000000",
+                        "error-container": "#ffdad6",
+                        "outline": "#76777d",
+                        "tertiary-container": "#271901",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "success": "#10B981",
+                        "text-secondary": "#475569",
+                        "on-tertiary-fixed": "#271901",
+                        "secondary": "#505f76",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface": "#FFFFFF",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sidebar-collapsed": "80px",
+                        "stack-gap": "1rem",
+                        "card-padding": "1.25rem",
+                        "sidebar-width": "260px",
+                        "gutter": "1.5rem",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "h1": ["Geist"],
+                        "h3": ["Geist"],
+                        "data-tabular": ["Geist"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "h2": ["Geist"],
+                        "body-base": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "h3": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "data-tabular": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-base": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #F8FAFC;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E2E8F0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-body-base text-text-primary antialiased">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-surface border-r border-border flex flex-col p-gutter">
+<div class="mb-8 px-4">
+<h1 class="font-h2 text-h2 text-text-primary">Enterprise Portal</h1>
+<p class="font-body-sm text-text-secondary">HR Management System</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Employees</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 bg-secondary-container text-on-secondary-container rounded-lg font-h3 text-h3 active:scale-[0.98] transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span>Leaves</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span>Announcements</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span>Team</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-border">
+<div class="flex items-center gap-3 px-4">
+<img alt="Organization Logo" class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of a mature male executive with a warm smile, wearing a dark blazer over a light blue shirt. The background is a soft-focus office environment with clean lines and high-key lighting, maintaining a corporate light-mode aesthetic with neutral colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5SqrYG8W_5UKTxcKS5_GiNyk2zoWjDXjc74zkdDPnDsXnGqCpiNUvoyz4uo9r5siakzFgifnr3XqBgzprPoQVvuu00vgFWgUbNMaeJFKvHRo1vFBzz7-qPGBVJQQjKVYcLnthhihlBHVHmM-EBEvyR7awol8e7Yd90yWdMXJ1s0abd3_ANGkntA0Jx2gL-lhRwrO-UYlr8Tmr6fSZEko39RFCegILED27GBeWLc3iu9zol-Epqx6Ntf1zFA3P_W8y5qhBfaSnD9sM"/>
+<div>
+<p class="font-h3 text-h3">Marcus Chen</p>
+<p class="font-body-sm text-text-muted">Engineering Lead</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[260px] min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-260px)] h-16 bg-surface border-b border-border shadow-sm z-10">
+<div class="flex justify-between items-center px-gutter h-full max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<h2 class="font-h1 text-h1 text-text-primary">Leave Management</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-background border border-border rounded-lg text-body-base focus:ring-2 focus:ring-info focus:outline-none w-64" placeholder="Search employees..." type="text"/>
+</div>
+<button class="p-2 text-text-secondary hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-text-secondary hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<div class="pt-24 pb-12 px-gutter max-w-container-max mx-auto">
+<!-- Grid Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Main Request Table Section (Span 9) -->
+<section class="col-span-12 lg:col-span-9 space-y-6">
+<!-- Tabs and Filters -->
+<div class="bg-surface p-4 rounded-xl border border-border shadow-sm flex items-center justify-between">
+<div class="flex p-1 bg-surface-container-low rounded-lg">
+<button class="px-6 py-1.5 rounded-md font-h3 text-h3 bg-white shadow-sm text-primary transition-all">Pending (4)</button>
+<button class="px-6 py-1.5 rounded-md font-body-base text-body-base text-text-secondary hover:text-text-primary transition-all">Approved</button>
+<button class="px-6 py-1.5 rounded-md font-body-base text-body-base text-text-secondary hover:text-text-primary transition-all">Rejected</button>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-2 px-3 py-1.5 border border-border rounded-lg text-body-sm text-text-secondary hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
+<span>Filter</span>
+</button>
+</div>
+</div>
+<!-- Leave Request List (Modern Card List) -->
+<div class="space-y-4">
+<!-- Request Card 1 -->
+<div class="bg-surface rounded-xl border border-border shadow-sm overflow-hidden hover:border-info/30 transition-colors">
+<div class="p-5 flex items-start gap-4">
+<img alt="Employee Avatar" class="w-12 h-12 rounded-full object-cover border-2 border-surface shadow-sm" data-alt="A portrait of a smiling young woman with dark hair in a professional setting. She is wearing a soft gray turtleneck against a minimal white background. The lighting is soft and flattering, creating a clean, professional corporate headshot in a modern light-mode style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkXeSICCJ0SFO6oUuxYBTbEtIxQfo1OX0O9s4RtoWJfKHSauQJFTtIJlIM19YU6LKpIe3DVgIryOXeF9s6r1FulIRw1Z34zKBfgD1EPPEpckN2Z-zxwzUOI0_e7SrC3DklpwXpecGtHhdozdN1_EZT0aC2bG5V_H5UxN_ofGHJFzmt1r_hsnsoWvm59SYIEaOscQse_ty8L4I4d4sc-pRBf__bY_lbonmOoy25k6uPdQYkCyiZNnSGuT-GIZXdvWfN-DLxET5mKMrB"/>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<div>
+<h3 class="font-h3 text-h3 text-text-primary">Sarah Jenkins</h3>
+<p class="font-body-sm text-text-muted">UX Designer • Team Alpha</p>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-blue-50 text-info rounded-full border border-blue-100">
+<span class="material-symbols-outlined text-[16px]" data-icon="event">event</span>
+<span class="font-label-caps text-label-caps">ANNUAL LEAVE</span>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-3 gap-6 py-4 border-y border-border">
+<div>
+<p class="font-label-caps text-label-caps text-text-muted mb-1 uppercase tracking-wider">Duration</p>
+<p class="font-data-tabular text-data-tabular font-semibold">Oct 24 - Oct 28 (5 Days)</p>
+</div>
+<div class="col-span-2">
+<p class="font-label-caps text-label-caps text-text-muted mb-1 uppercase tracking-wider">Reason</p>
+<p class="font-body-base text-body-base text-text-secondary italic">"Family wedding out of town. Will ensure all design handovers for Sprint 4 are completed by Friday."</p>
+</div>
+</div>
+<div class="mt-4 flex justify-end gap-3">
+<button class="px-6 py-2 border border-error/20 text-error hover:bg-error/5 transition-colors rounded-lg font-h3 text-h3">
+                                            Reject
+                                        </button>
+<button class="px-6 py-2 bg-primary text-white hover:bg-primary-container transition-colors rounded-lg font-h3 text-h3">
+                                            Approve
+                                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Request Card 2 -->
+<div class="bg-surface rounded-xl border border-border shadow-sm overflow-hidden hover:border-info/30 transition-colors">
+<div class="p-5 flex items-start gap-4">
+<img alt="Employee Avatar" class="w-12 h-12 rounded-full object-cover border-2 border-surface shadow-sm" data-alt="A crisp, professional headshot of a man with light brown hair and a friendly expression. He is wearing a clean white t-shirt, standing against a neutral studio background. The overall aesthetic is bright and modern, perfectly aligned with a professional HR software interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Kpw0hkN0j8cYqkyyxAnni3IR3PHSS0OncRWXUqLBPcV-xkpQYMf5P7nqM4jBxwAzdCLpuaut6G7qxBnOtS-xbOwgb2Ud2VkdstBf5pjM-1AsGu9GukerO9wI7oM3le-SIYBkRxc_TLFA2KrUgrGP76Y-oJrqDbHFPGrzwr8ftwmAHfQC0BDPL-n7GgM2A3TlqJMwdEAWiJNB0_FOfkYSnk87zNdmPjVMHb9_vEx_x2HtwnJsHcAwXrTRV0y2tZqlPxMFo40ekmR8"/>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<div>
+<h3 class="font-h3 text-h3 text-text-primary">David Miller</h3>
+<p class="font-body-sm text-text-muted">Senior Developer • Team Alpha</p>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-red-50 text-error rounded-full border border-red-100">
+<span class="material-symbols-outlined text-[16px]" data-icon="medical_services">medical_services</span>
+<span class="font-label-caps text-label-caps">SICK LEAVE</span>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-3 gap-6 py-4 border-y border-border">
+<div>
+<p class="font-label-caps text-label-caps text-text-muted mb-1 uppercase tracking-wider">Duration</p>
+<p class="font-data-tabular text-data-tabular font-semibold">Oct 19 (1 Day)</p>
+</div>
+<div class="col-span-2">
+<p class="font-label-caps text-label-caps text-text-muted mb-1 uppercase tracking-wider">Reason</p>
+<p class="font-body-base text-body-base text-text-secondary italic">"Woke up with severe flu symptoms. Will check emails intermittently if feeling better."</p>
+</div>
+</div>
+<div class="mt-4 flex justify-end gap-3">
+<button class="px-6 py-2 border border-error/20 text-error hover:bg-error/5 transition-colors rounded-lg font-h3 text-h3">
+                                            Reject
+                                        </button>
+<button class="px-6 py-2 bg-primary text-white hover:bg-primary-container transition-colors rounded-lg font-h3 text-h3">
+                                            Approve
+                                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Request Card 3 -->
+<div class="bg-surface rounded-xl border border-border shadow-sm overflow-hidden hover:border-info/30 transition-colors opacity-80">
+<div class="p-5 flex items-start gap-4">
+<img alt="Employee Avatar" class="w-12 h-12 rounded-full object-cover border-2 border-surface shadow-sm" data-alt="A portrait of a professional woman of color with glasses, smiling confidently. She is wearing a navy blue blazer over a white blouse. The background is a blurred high-end office lobby with warm wood and glass accents, lit with bright, natural morning light for a high-performance corporate feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-JDVp-D3W8nRUpA1sYw3o_mwow9EUHYkVewhDKfD6Udx5ojy6yw1fHbpTZJCVQJ6Nz_alPA-GISBjTZR88cBOnDXtGPsqQuMqWU8Rr535ga9gb26nZ30pwtqBERW9UvXiLzUzq8tvwl7xpniQ_fMFlPkr5MQIe3yt-tnt9Ugy4Ch7pI7djbozsiWh6qJazt_8MSSpm4_fc9hOhDtGwYi6CENk7d8e0Ra182KPDT0snoFWgIFKFyqoaOahIN_huJIlV9LbufPKKlJl"/>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<div>
+<h3 class="font-h3 text-h3 text-text-primary">Amara Okafor</h3>
+<p class="font-body-sm text-text-muted">Marketing Analyst • Team Beta</p>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-purple-50 text-purple-700 rounded-full border border-purple-100">
+<span class="material-symbols-outlined text-[16px]" data-icon="child_care">child_care</span>
+<span class="font-label-caps text-label-caps">PARENTAL LEAVE</span>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-3 gap-6 py-4 border-y border-border">
+<div>
+<p class="font-label-caps text-label-caps text-text-muted mb-1 uppercase tracking-wider">Duration</p>
+<p class="font-data-tabular text-data-tabular font-semibold">Nov 01 - Nov 05 (5 Days)</p>
+</div>
+<div class="col-span-2">
+<p class="font-label-caps text-label-caps text-text-muted mb-1 uppercase tracking-wider">Reason</p>
+<p class="font-body-base text-body-base text-text-secondary italic">"Child's school break. Taking time off for family activities as discussed during the quarterly review."</p>
+</div>
+</div>
+<div class="mt-4 flex justify-end gap-3">
+<button class="px-6 py-2 border border-error/20 text-error hover:bg-error/5 transition-colors rounded-lg font-h3 text-h3">
+                                            Reject
+                                        </button>
+<button class="px-6 py-2 bg-primary text-white hover:bg-primary-container transition-colors rounded-lg font-h3 text-h3">
+                                            Approve
+                                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sidebar Widgets (Span 3) -->
+<aside class="col-span-12 lg:col-span-3 space-y-6">
+<!-- Out of Office Widget -->
+<div class="bg-surface rounded-xl border border-border shadow-sm p-5">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-h3 text-h3 text-text-primary">Out of Office</h3>
+<span class="px-2 py-0.5 bg-success/10 text-success text-[11px] font-bold rounded uppercase">Today</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="Employee" class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of a middle-aged man with short dark hair and a clean-shaven face. He is wearing a simple black polo shirt. The background is a softly lit neutral wall, giving it a modern and minimalist look suitable for a tech company's internal portal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbFeyKpN6S0q6TQw3BPmhApG6g2mpu6X0HpgYT-EQ5vB1_JZilPaxeaQcrzhJBBlosRfcwXJfknWvS8PF6XILo61bNKNn5LyJKQmDq-yP4GGyiN_ALt-8mZA2ZlnfpffptrZhc3gw-pNZ9FY2zMHUC3_9zg0QXfcaXrrOM9Ev_0nWgWXnlGcCPjgZk2Vuu8LvjU-7PKlS1gWBAmiUvepof25TirRdOolD4wmvUgnM5ekw9TcXkmXcPcCMWxpY7Z-KcAikvVnzGbUvk"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-pending border-2 border-white rounded-full"></span>
+</div>
+<div class="flex-1">
+<p class="font-h3 text-h3 text-[14px]">James Wilson</p>
+<p class="font-body-sm text-text-muted">Returning Tomorrow</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="Employee" class="w-10 h-10 rounded-full object-cover" data-alt="A portrait of a young professional woman with light brown hair, smiling warmly. She is wearing a simple white blouse in a bright, airy office setting with plants in the blurred background. The style is professional, vibrant, and clean, following high-end UI design standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx9WF37Pk5fERNzoEj9LadsE2skAKRl_GW9-8SSFmZRNgkhBjJL94rvUktacgAPyzZUNtLVGT8LBgCoOVyubhFOuJ4f6d5sTLE0x6i2XCyFWSDdGLoumifY_giYRMdBxdiWD6a3pM2-VrfvauvVzwAzDPcVLWvyGFFcJr66WZPVIEHmtzb3J6LjS9g0yR0gLHxXsryWniOQlAAFhncJa47kZgCRgCLXqa_8TYpuTb1aVTiosYE1KEewcz2--2lMyoNdeZHg1AMpLPq"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-error border-2 border-white rounded-full"></span>
+</div>
+<div class="flex-1">
+<p class="font-h3 text-h3 text-[14px]">Elena Rodriguez</p>
+<p class="font-body-sm text-text-muted">Sick Leave</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="Employee" class="w-10 h-10 rounded-full object-cover" data-alt="A minimal and professional headshot of a woman with short blonde hair and a confident look. She is wearing a charcoal-colored business suit. The lighting is crisp and cool, set against a plain light gray background to ensure high readability in a dense information interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfTozvA8jYhbnrMN39P-4TbK-r6kpnC5-jqvARhRf0GI0Doy-jvewpkLqKEVioFFBmoiLeuE5LACuvMkvVm2oOzhA9CsqqX0om3E9UfDlHHeN_ZVHPMGIcHViHVYOvC2Cft7ke_d8YwuXfazy-eqH8-z1GmW_8AZ2OvHRCwPNoLvtUyiISDh7lraaJgc0h1zzV5RiRNPc4OWAKB8dz5N3clEuGCHGMeaD_sbDIfrsrp4_jr6WtvBfLUwIEIu1u-2Mhyj3m12F-MMKI"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-pending border-2 border-white rounded-full"></span>
+</div>
+<div class="flex-1">
+<p class="font-h3 text-h3 text-[14px]">Sophie Bennett</p>
+<p class="font-body-sm text-text-muted">Annual Leave (Week 1/2)</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 text-body-sm font-semibold text-info hover:bg-blue-50 transition-colors rounded-lg border border-transparent hover:border-blue-100">
+                            View Calendar
+                        </button>
+</div>
+<!-- Team Capacity Widget -->
+<div class="bg-surface rounded-xl border border-border shadow-sm p-5">
+<h3 class="font-h3 text-h3 text-text-primary mb-4">Team Availability</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-body-sm mb-1">
+<span class="text-text-secondary font-medium">This Week</span>
+<span class="text-text-primary font-bold">82%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-success rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-1">
+<span class="text-text-secondary font-medium">Next Week</span>
+<span class="text-text-primary font-bold">65%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-pending rounded-full" style="width: 65%"></div>
+</div>
+</div>
+</div>
+<div class="mt-4 p-3 bg-surface-container-low rounded-lg border border-border">
+<p class="font-body-sm text-text-muted italic leading-relaxed">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="info">info</span>
+                                Availability drops below threshold next week due to 3 concurrent requests.
+                            </p>
+</div>
+</div>
+<!-- Quick Stats -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface p-4 rounded-xl border border-border shadow-sm text-center">
+<p class="font-label-caps text-label-caps text-text-muted mb-1">REQUESTS</p>
+<p class="font-h1 text-h1">12</p>
+</div>
+<div class="bg-surface p-4 rounded-xl border border-border shadow-sm text-center">
+<p class="font-label-caps text-label-caps text-text-muted mb-1">URGENT</p>
+<p class="font-h1 text-h1 text-error">2</p>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+</body></html>

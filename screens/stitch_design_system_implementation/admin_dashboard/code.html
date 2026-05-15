@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Employee Portal Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#98805d",
+                    "text-primary": "#0F172A",
+                    "tertiary": "#000000",
+                    "primary-container": "#131b2e",
+                    "surface-container-high": "#eae7e9",
+                    "pending": "#F59E0B",
+                    "surface-variant": "#e4e2e4",
+                    "on-secondary-container": "#54647a",
+                    "secondary": "#505f76",
+                    "outline": "#76777d",
+                    "surface-bright": "#fcf8fa",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "on-primary-container": "#7c839b",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "on-secondary-fixed": "#0b1c30",
+                    "tertiary-fixed": "#fcdeb5",
+                    "primary-fixed-dim": "#bec6e0",
+                    "inverse-on-surface": "#f3f0f2",
+                    "text-secondary": "#475569",
+                    "on-tertiary-fixed": "#271901",
+                    "surface-dim": "#dcd9db",
+                    "tertiary-container": "#271901",
+                    "surface-container": "#f0edef",
+                    "error": "#EF4444",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-surface-variant": "#45464d",
+                    "background": "#F8FAFC",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#131b2e",
+                    "outline-variant": "#c6c6cd",
+                    "on-background": "#1b1b1d",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e4e2e4",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f6f3f5",
+                    "text-muted": "#94A3B8",
+                    "inverse-primary": "#bec6e0",
+                    "on-surface": "#1b1b1d",
+                    "inverse-surface": "#303032",
+                    "primary-fixed": "#dae2fd",
+                    "on-secondary": "#ffffff",
+                    "primary": "#000000",
+                    "info": "#3B82F6",
+                    "secondary-container": "#d0e1fb",
+                    "surface": "#FFFFFF",
+                    "border": "#E2E8F0",
+                    "success": "#10B981",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#565e74",
+                    "on-primary-fixed-variant": "#3f465c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-gap": "1rem",
+                    "sidebar-width": "260px",
+                    "gutter": "1.5rem",
+                    "container-max": "1440px",
+                    "card-padding": "1.25rem",
+                    "sidebar-collapsed": "80px"
+            },
+            "fontFamily": {
+                    "h2": ["Geist"],
+                    "h1": ["Geist"],
+                    "data-tabular": ["Geist"],
+                    "body-base": ["Inter"],
+                    "h3": ["Geist"],
+                    "body-sm": ["Inter"],
+                    "label-caps": ["Inter"]
+            },
+            "fontSize": {
+                    "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "data-tabular": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-base": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "h3": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #F8FAFC;
+        }
+    </style>
+</head>
+<body class="font-body-base text-text-primary antialiased">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-surface border-r border-border flex flex-col h-full p-gutter">
+<div class="mb-10">
+<h1 class="font-h2 text-h2 text-text-primary">Enterprise Portal</h1>
+<p class="text-text-muted text-body-sm">HR Management System</p>
+</div>
+<nav class="flex flex-col gap-1 grow">
+<a class="flex items-center gap-3 px-4 py-2 bg-secondary-container text-on-secondary-container rounded-lg font-h3 text-h3 scale-[0.98] transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                Employees
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+                Leaves
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+                Announcements
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+                Team
+            </a>
+<div class="mt-auto flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+                    Profile
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+</div>
+</nav>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-260px)] h-16 bg-surface border-b border-border shadow-sm z-10">
+<div class="flex justify-between items-center px-gutter h-full max-w-container-max ml-auto">
+<div class="flex items-center flex-1 max-w-md relative">
+<span class="material-symbols-outlined absolute left-3 text-text-muted" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-lg text-body-sm focus:ring-2 focus:ring-info outline-none transition-all" placeholder="Search employees, documents..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors relative">
+<span class="material-symbols-outlined text-text-secondary" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-text-secondary" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-8 w-px bg-border mx-2"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right hidden sm:block">
+<p class="text-body-base font-h3 leading-tight">Alex Rivera</p>
+<p class="text-label-caps text-text-muted uppercase">Admin</p>
+</div>
+<img alt="User Avatar" class="w-10 h-10 rounded-full border border-border" data-alt="A professional studio portrait of a male corporate executive in his late 30s. He has a warm, confident expression and is wearing a crisp white dress shirt with a subtle blue tie. The lighting is soft and flattering against a neutral, high-key office background. The overall style is clean, modern, and perfectly suited for an enterprise management software user profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnz-mK4SV200rBD92mdBHFyE7IQzVn2FzV2HEZS-4L-i7CesrGRIPf5-NFYJd2i3yV2PsnsokOIK3kzH7Mi0_ndly4-Vm1h8wV4_xf_Q3W_9tgfAnvnXWv8DNTnGkyV2jRzT8JZz_XUvJGJdTgXe_qgoVZvIOzS1PyUw5Dmjdcj60kgql3ndlYQqm7WS1YEecNJts-Fms3SHuhPUQBs9MOpO46TXfZTHQI1-kpWamBzGhbetS2VLQ0dfb88Uasm7l4YLpX3YQ8KTHv"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-[260px] pt-16 min-h-screen">
+<div class="p-gutter max-w-container-max mx-auto space-y-8">
+<!-- Page Header -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-h1 text-h1">Dashboard</h2>
+<p class="text-text-secondary">Overview of your organization's health and activity.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-surface border border-border text-text-primary rounded-lg font-h3 text-h3 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="file_download">file_download</span>
+                        Export Report
+                    </button>
+</div>
+</div>
+<!-- Bento Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Total Employees -->
+<div class="bg-surface p-card-padding rounded-xl border border-border shadow-sm flex flex-col justify-between h-[160px]">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-secondary-fixed rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-fixed" data-icon="group">group</span>
+</div>
+<span class="text-success text-label-caps flex items-center font-bold">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                            +12%
+                        </span>
+</div>
+<div>
+<p class="text-text-muted font-label-caps uppercase tracking-wider">Total Employees</p>
+<h3 class="text-h1 font-h1">1,284</h3>
+</div>
+</div>
+<!-- Attendance Summary -->
+<div class="bg-surface p-card-padding rounded-xl border border-border shadow-sm flex flex-col justify-between h-[160px]">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-blue-50 text-info rounded-lg">
+<span class="material-symbols-outlined" data-icon="how_to_reg">how_to_reg</span>
+</div>
+<span class="text-text-muted text-label-caps font-medium">Daily Avg</span>
+</div>
+<div>
+<p class="text-text-muted font-label-caps uppercase tracking-wider">Attendance Rate</p>
+<h3 class="text-h1 font-h1">96.4%</h3>
+</div>
+</div>
+<!-- Pending Leaves -->
+<div class="bg-surface p-card-padding rounded-xl border border-border shadow-sm flex flex-col justify-between h-[160px]">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-orange-50 text-pending rounded-lg">
+<span class="material-symbols-outlined" data-icon="event_busy">event_busy</span>
+</div>
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-surface" data-alt="Close up face of a professional team member." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA6bDe4vcxtXuXXY8Z64c9lKgeRIfhEhDY73oDKSQoG3OkmPpvQXauIgSOfj6kbWkFP-rb4gbNEciHKm55SBnd2Bbg3B-ywKh8aoAbMvfoAvnTqg8bllx0My9fMbrC_ErCgYx4NZ0ZpvgSEBzRINyTgTLvPQvzcs-dE9lRH9dy9TayCc9rtnTXG0H69JqQLAp54QWFLv-sBWftrsjMk19Nzbx9TduUu6c3smG2Scs7IrWgx-PXU3NdXvY94weKAJqCvEAuOaatIjBx"/>
+<img class="w-6 h-6 rounded-full border-2 border-surface" data-alt="Close up face of a professional team member." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOYf0wff4nMHiszllX7PoSwA17Nm9L7P_bPFG8RQhJGif0ibz8U3pGEQ-UDVsR0EsTSfAtEWVvuAu6WjA2M69_mmAC9ria_6fqWIuVpopS8wFAEsDpq3NvM3w16YDmSaUBzx_2Z-QU8kykMPL6h9h4_doQJj8oPruEcE1BelFEDqSwEtEFqo3fl1wyUjQwzuBC009_jNQVP6l1K3OmNSMX_Pq39dkmJivNnZR0g0843w66DOaHU2gHkXTeU5_Q_YWtKt6cLXSLCRVu"/>
+<div class="w-6 h-6 rounded-full bg-surface-container-high border-2 border-surface flex items-center justify-center text-[10px] font-bold">+5</div>
+</div>
+</div>
+<div>
+<p class="text-text-muted font-label-caps uppercase tracking-wider">Pending Approvals</p>
+<h3 class="text-h1 font-h1 text-pending">14</h3>
+</div>
+</div>
+<!-- Announcements -->
+<div class="bg-surface p-card-padding rounded-xl border border-border shadow-sm flex flex-col justify-between h-[160px]">
+<div class="flex justify-between items-start">
+<div class="p-2 bg-surface-container-high text-primary rounded-lg">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+</div>
+<span class="bg-primary text-on-primary text-[10px] px-1.5 py-0.5 rounded uppercase font-bold tracking-tighter">NEW</span>
+</div>
+<div>
+<p class="text-text-muted font-label-caps uppercase tracking-wider">Active Announcements</p>
+<h3 class="text-h1 font-h1">3</h3>
+</div>
+</div>
+</div>
+<!-- Lower Section Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Recent Activity Feed (8 cols) -->
+<div class="lg:col-span-8 bg-surface rounded-xl border border-border shadow-sm overflow-hidden">
+<div class="p-card-padding border-b border-border flex justify-between items-center">
+<h3 class="font-h2 text-h2">Recent Activity</h3>
+<button class="text-info text-body-sm font-medium hover:underline">View All</button>
+</div>
+<div class="divide-y divide-border">
+<!-- Activity Item 1 -->
+<div class="p-card-padding flex gap-4 hover:bg-surface-container-lowest transition-colors">
+<div class="relative">
+<img alt="Employee" class="w-10 h-10 rounded-full object-cover" data-alt="A portrait of a focused female software engineer working in a modern, brightly lit office environment. She is smiling warmly at the camera, conveying professionalism and approachability. The image style is minimalist with soft daylight tones, aligning with an enterprise HR portal's clean aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLO5rHdxyZ-4FEShsEyVRKGLSjfWsacj9l7y7mhZXkRchqcXmN7KHbOYMx6EWxWQX2C1GnHvqs5mZhScYnwhVAmWDg0is18YCscoZmBGusGUEC-9Pp_NkNCHThayKQvwvLlqXgi9JJj4ZMVJ1pZm19HAdg4k1Eoxo3yr5hh8uVfexA-ErWm2o2RCtsI4Z6xjcxLEf-vrfmHpFvqKJgfB2tONzUNvbcHLeH0iAz5OjdAQM7YnHyZKdm-qjYGCcsl6XinpshgkmiORgv"/>
+<div class="absolute -bottom-1 -right-1 bg-success p-1 rounded-full border-2 border-surface">
+<span class="material-symbols-outlined text-white text-[12px] block" data-icon="check" data-weight="fill">check</span>
+</div>
+</div>
+<div class="grow">
+<p class="text-body-base"><span class="font-bold">Sarah Jenkins</span> approved a leave request for <span class="font-bold">David Chen</span></p>
+<p class="text-body-sm text-text-muted mt-1">Today at 10:45 AM • Leave Management</p>
+</div>
+<button class="text-text-muted hover:text-text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<!-- Activity Item 2 -->
+<div class="p-card-padding flex gap-4 hover:bg-surface-container-lowest transition-colors">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+</div>
+</div>
+<div class="grow">
+<p class="text-body-base"><span class="font-bold">New Employee Onboarding:</span> Welcome <span class="font-bold">Marcus Thorne</span> to the Product Team</p>
+<p class="text-body-sm text-text-muted mt-1">Yesterday at 4:12 PM • HR Operations</p>
+</div>
+<button class="text-text-muted hover:text-text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<!-- Activity Item 3 -->
+<div class="p-card-padding flex gap-4 hover:bg-surface-container-lowest transition-colors">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-text-secondary">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+</div>
+</div>
+<div class="grow">
+<p class="text-body-base"><span class="font-bold">Policy Update:</span> New remote work guidelines have been posted.</p>
+<p class="text-body-sm text-text-muted mt-1">2 days ago • Announcements</p>
+</div>
+<button class="text-text-muted hover:text-text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Actions (4 cols) -->
+<div class="lg:col-span-4 space-y-gutter">
+<div class="bg-surface rounded-xl border border-border shadow-sm p-card-padding">
+<h3 class="font-h2 text-h2 mb-4">Quick Actions</h3>
+<div class="space-y-3">
+<button class="w-full flex items-center justify-between p-4 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-opacity active:scale-[0.98]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+<span class="font-h3">Add Employee</span>
+</div>
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 bg-surface border border-border text-text-primary rounded-lg hover:bg-surface-container-low transition-colors active:scale-[0.98]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="post_add">post_add</span>
+<span class="font-h3">Post Announcement</span>
+</div>
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 bg-surface border border-border text-text-primary rounded-lg hover:bg-surface-container-low transition-colors active:scale-[0.98]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="rule">rule</span>
+<span class="font-h3">Review Leaves</span>
+</div>
+<div class="bg-pending text-white px-2 py-0.5 rounded text-[10px] font-bold">14</div>
+</button>
+</div>
+</div>
+<!-- Upcoming Events Card -->
+<div class="bg-surface rounded-xl border border-border shadow-sm p-card-padding">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-h2 text-h2">Team Cal</h3>
+<span class="material-symbols-outlined text-text-muted text-[20px]" data-icon="calendar_month">calendar_month</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-3 items-center">
+<div class="w-10 h-10 rounded bg-blue-50 flex flex-col items-center justify-center text-info shrink-0">
+<span class="text-[10px] font-bold uppercase">Oct</span>
+<span class="text-lg font-bold leading-none">12</span>
+</div>
+<div>
+<p class="text-body-base font-medium">Quarterly Review</p>
+<p class="text-body-sm text-text-muted">10:00 AM • Main Hall</p>
+</div>
+</div>
+<div class="flex gap-3 items-center">
+<div class="w-10 h-10 rounded bg-orange-50 flex flex-col items-center justify-center text-pending shrink-0">
+<span class="text-[10px] font-bold uppercase">Oct</span>
+<span class="text-lg font-bold leading-none">15</span>
+</div>
+<div>
+<p class="text-body-base font-medium">Team Building</p>
+<p class="text-body-sm text-text-muted">All Day • Remote</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (FAB) - Contextual for Dashboard -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center group active:scale-95">
+<span class="material-symbols-outlined text-[28px] transition-transform group-hover:rotate-90" data-icon="add">add</span>
+</button>
+</body></html>

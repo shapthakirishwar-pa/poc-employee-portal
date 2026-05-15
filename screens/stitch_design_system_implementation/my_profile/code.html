@@ -1,0 +1,333 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-tertiary-container": "#98805d",
+                  "text-primary": "#0F172A",
+                  "tertiary": "#000000",
+                  "primary-container": "#131b2e",
+                  "surface-container-high": "#eae7e9",
+                  "pending": "#F59E0B",
+                  "surface-variant": "#e4e2e4",
+                  "on-secondary-container": "#54647a",
+                  "secondary": "#505f76",
+                  "outline": "#76777d",
+                  "surface-bright": "#fcf8fa",
+                  "on-error-container": "#93000a",
+                  "tertiary-fixed-dim": "#dec29a",
+                  "on-primary-container": "#7c839b",
+                  "on-tertiary-fixed-variant": "#574425",
+                  "on-secondary-fixed": "#0b1c30",
+                  "tertiary-fixed": "#fcdeb5",
+                  "primary-fixed-dim": "#bec6e0",
+                  "inverse-on-surface": "#f3f0f2",
+                  "text-secondary": "#475569",
+                  "on-tertiary-fixed": "#271901",
+                  "surface-dim": "#dcd9db",
+                  "tertiary-container": "#271901",
+                  "surface-container": "#f0edef",
+                  "error": "#EF4444",
+                  "secondary-fixed-dim": "#b7c8e1",
+                  "on-surface-variant": "#45464d",
+                  "background": "#F8FAFC",
+                  "on-tertiary": "#ffffff",
+                  "on-primary-fixed": "#131b2e",
+                  "outline-variant": "#c6c6cd",
+                  "on-background": "#1b1b1d",
+                  "error-container": "#ffdad6",
+                  "surface-container-highest": "#e4e2e4",
+                  "surface-container-lowest": "#ffffff",
+                  "on-primary": "#ffffff",
+                  "surface-container-low": "#f6f3f5",
+                  "text-muted": "#94A3B8",
+                  "inverse-primary": "#bec6e0",
+                  "on-surface": "#1b1b1d",
+                  "inverse-surface": "#303032",
+                  "primary-fixed": "#dae2fd",
+                  "on-secondary": "#ffffff",
+                  "primary": "#000000",
+                  "info": "#3B82F6",
+                  "secondary-container": "#d0e1fb",
+                  "surface": "#FFFFFF",
+                  "border": "#E2E8F0",
+                  "success": "#10B981",
+                  "on-secondary-fixed-variant": "#38485d",
+                  "secondary-fixed": "#d3e4fe",
+                  "on-error": "#ffffff",
+                  "surface-tint": "#565e74",
+                  "on-primary-fixed-variant": "#3f465c"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "stack-gap": "1rem",
+                  "sidebar-width": "260px",
+                  "gutter": "1.5rem",
+                  "container-max": "1440px",
+                  "card-padding": "1.25rem",
+                  "sidebar-collapsed": "80px"
+          },
+          "fontFamily": {
+                  "h2": ["Geist"],
+                  "h1": ["Geist"],
+                  "data-tabular": ["Geist"],
+                  "body-base": ["Inter"],
+                  "h3": ["Geist"],
+                  "body-sm": ["Inter"],
+                  "label-caps": ["Inter"]
+          },
+          "fontSize": {
+                  "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                  "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                  "data-tabular": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                  "body-base": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                  "h3": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                  "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                  "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+    }
+    body {
+      background-color: #F8FAFC;
+    }
+  </style>
+</head>
+<body class="font-body-base text-text-primary antialiased">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-surface border-r border-border flex flex-col p-gutter z-50">
+<div class="mb-8 px-4">
+<h1 class="font-h2 text-h2 text-text-primary">Enterprise Portal</h1>
+<p class="font-body-sm text-text-muted">HR Management System</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Active navigation mapping: Profile -->
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+        Dashboard
+      </a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+        Employees
+      </a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+        Leaves
+      </a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+        Announcements
+      </a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+        Team
+      </a>
+<a class="flex items-center gap-3 px-4 py-2 bg-secondary-container text-on-secondary-container rounded-lg font-h3 text-h3 active:scale-[0.98] transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+        Profile
+      </a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+        Settings
+      </a>
+</nav>
+<div class="mt-auto pt-6 border-t border-border">
+<div class="flex items-center gap-3 px-4">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="account_circle">account_circle</span>
+</div>
+<div>
+<p class="font-h3 text-[14px]">Alex Rivera</p>
+<p class="font-body-sm text-text-muted text-[12px]">Product Designer</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-260px)] h-16 bg-surface shadow-sm z-40">
+<div class="flex justify-between items-center px-gutter h-full max-w-container-max ml-auto">
+<div class="flex items-center flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-muted">search</span>
+<input class="w-full bg-background border border-border rounded-lg pl-10 pr-4 py-1.5 font-body-base focus:outline-none focus:ring-2 focus:ring-info focus:border-transparent transition-all" placeholder="Search employee directory..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-text-secondary hover:bg-surface-container-low p-2 rounded-full transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-text-secondary hover:bg-surface-container-low p-2 rounded-full transition-colors" data-icon="help_outline">help_outline</button>
+</div>
+<div class="h-8 w-px bg-border"></div>
+<img alt="User Avatar" class="w-10 h-10 rounded-full border border-border" data-alt="A professional headshot of a modern product designer with a friendly expression. The lighting is bright and even, mimicking a professional studio setting. The background is a clean, minimalist off-white, maintaining the high-key corporate aesthetic of the interface. The image is crisp, clear, and represents professional reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuActre5a8apulQofe5HsPdBwYZCZAbsN1rGRiywMQUP2mwd4OTVvfhA7wIorJQOoeb3blAJPb_8IuqNtKC80HeWRPLMXf_AF_LGKskYyb_TGa4pfuSW4viIu8_JaiNBoaXsGQ58QRPXT4tYksrON1V2oEAWhGqj0tU8qboWgDnKG85OvNq64k3_ai3ALQpEulF0vNppqSyviPizGYO9gmw1wubV-CXXW3FbvEix6DuiNvNo1D4UHPqnsfdIJbqZyv0bmE54eVWc0OqC"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas Content -->
+<main class="ml-[260px] pt-16 min-h-screen">
+<div class="max-w-container-max mx-auto p-gutter pb-24">
+<!-- Breadcrumbs & Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<nav class="flex items-center gap-2 mb-2">
+<span class="text-text-muted font-body-sm">Organization</span>
+<span class="material-symbols-outlined text-text-muted text-[14px]">chevron_right</span>
+<span class="text-text-primary font-body-sm font-semibold">Employee Profile</span>
+</nav>
+<h2 class="font-h1 text-h1 text-text-primary">Personal Information</h2>
+<p class="text-text-secondary font-body-base mt-1">Manage your public profile and private contact details.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 border border-border text-text-secondary font-h3 text-h3 rounded-lg hover:bg-surface-container-low transition-all">Discard</button>
+<button class="px-6 py-2 bg-primary text-on-primary font-h3 text-h3 rounded-lg hover:opacity-90 active:scale-[0.98] transition-all">Save Changes</button>
+</div>
+</div>
+<!-- Content Grid -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Sidebar Column: Avatar & Quick Info -->
+<div class="col-span-4 space-y-gutter">
+<div class="bg-surface border border-border rounded-xl p-card-padding shadow-sm">
+<div class="flex flex-col items-center">
+<div class="relative group cursor-pointer mb-4">
+<img class="w-48 h-48 rounded-full border-4 border-background shadow-md object-cover transition-transform group-hover:scale-[1.02]" data-alt="A detailed, close-up professional portrait of a modern employee in a bright, sunlit office environment. The image is centered with a shallow depth of field, focusing on the friendly subject. The lighting is warm and natural, creating a welcoming and high-end feel consistent with the minimalist enterprise UI. The overall mood is professional and approachable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH_L0m_NEjl7PQqgB35Wc0d0eTst5RjtRmOuZUMmR1T4Pd6QrUB7pv9RbB-wCZqvCCX0MF-yzVB7iSI8O_KrZoAMNrGWrmyFsI6sUJSzhHu9GXGYeacFlZaWU7hEM179ephmRyQCfUk5Tkvg_62sley2pr9duVXSqlMEv87S2G7Ds3-T0QRfOIMdHYqXOE9nqmZC4bymt7F-ZJqI4SjgJRpdpZOCpoGg-9bozLFJOuvFaR1jU9xgpzKdEB-fhzqxrGo4vBUznu4Fqw"/>
+<div class="absolute inset-0 bg-black/40 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white" data-icon="photo_camera" style="font-size: 32px;">photo_camera</span>
+</div>
+</div>
+<h3 class="font-h2 text-h2 mb-1">Alex Rivera</h3>
+<p class="text-text-muted font-body-base mb-6">Product Designer • Engineering</p>
+<div class="w-full space-y-4 pt-6 border-t border-border">
+<div class="flex items-center justify-between">
+<span class="text-text-muted font-label-caps">Employee ID</span>
+<span class="font-data-tabular font-medium">EMP-90210</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-text-muted font-label-caps">Status</span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-success/10 text-success">Active</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-text-muted font-label-caps">Joined</span>
+<span class="font-data-tabular font-medium">Oct 12, 2021</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Stats / Bento Style Extra -->
+<div class="bg-primary-container text-on-primary-container rounded-xl p-card-padding">
+<h4 class="font-h3 text-h3 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+              Completion Score
+            </h4>
+<div class="relative h-2 w-full bg-white/10 rounded-full overflow-hidden mb-2">
+<div class="absolute h-full bg-info w-[85%] rounded-full"></div>
+</div>
+<p class="font-body-sm text-on-primary-container/70">85% — Finish your bio to reach 100%.</p>
+</div>
+</div>
+<!-- Main Form Column -->
+<div class="col-span-8 space-y-gutter">
+<!-- Personal Info Card -->
+<div class="bg-surface border border-border rounded-xl shadow-sm">
+<div class="px-card-padding py-4 border-b border-border flex items-center justify-between">
+<h3 class="font-h3 text-h3">Profile Settings</h3>
+<span class="text-info text-[13px] font-semibold cursor-pointer hover:underline">Edit layout</span>
+</div>
+<div class="p-card-padding">
+<div class="grid grid-cols-2 gap-6 mb-6">
+<div class="space-y-1.5">
+<label class="font-label-caps text-text-secondary">Full Name</label>
+<input class="w-full border border-border rounded-lg px-4 py-2 font-body-base focus:ring-2 focus:ring-info focus:border-transparent transition-all" type="text" value="Alex Rivera"/>
+</div>
+<div class="space-y-1.5">
+<label class="font-label-caps text-text-secondary">Preferred Name</label>
+<input class="w-full border border-border rounded-lg px-4 py-2 font-body-base focus:ring-2 focus:ring-info focus:border-transparent transition-all" placeholder="e.g. Al" type="text"/>
+</div>
+<div class="space-y-1.5">
+<label class="font-label-caps text-text-secondary">Personal Email</label>
+<input class="w-full border border-border rounded-lg px-4 py-2 font-body-base focus:ring-2 focus:ring-info focus:border-transparent transition-all" type="email" value="alex.rivera@gmail.com"/>
+</div>
+<div class="space-y-1.5">
+<label class="font-label-caps text-text-secondary">Phone Number</label>
+<input class="w-full border border-border rounded-lg px-4 py-2 font-body-base focus:ring-2 focus:ring-info focus:border-transparent transition-all" type="tel" value="+1 (555) 012-3456"/>
+</div>
+</div>
+<div class="space-y-1.5 mb-6">
+<label class="font-label-caps text-text-secondary">Home Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-3 text-text-muted">location_on</span>
+<textarea class="w-full border border-border rounded-lg pl-10 pr-4 py-2 font-body-base focus:ring-2 focus:ring-info focus:border-transparent transition-all resize-none" rows="2">123 Design Way, Creative District, San Francisco, CA 94103</textarea>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="font-label-caps text-text-secondary">Professional Bio</label>
+<textarea class="w-full border border-border rounded-lg px-4 py-2 font-body-base focus:ring-2 focus:ring-info focus:border-transparent transition-all" placeholder="Tell us about yourself and your role..." rows="4"></textarea>
+<p class="text-text-muted text-[12px]">Brief description for your profile. URLs are hyperlinked.</p>
+</div>
+</div>
+</div>
+<!-- Privacy & Preferences Card -->
+<div class="bg-surface border border-border rounded-xl shadow-sm overflow-hidden">
+<div class="px-card-padding py-4 border-b border-border">
+<h3 class="font-h3 text-h3">Preferences</h3>
+</div>
+<div class="divide-y divide-border">
+<div class="p-card-padding flex items-center justify-between">
+<div>
+<p class="font-h3 text-[14px]">Profile Visibility</p>
+<p class="text-text-muted text-[13px]">Make your profile visible to external partners.</p>
+</div>
+<button class="w-10 h-6 bg-info rounded-full relative transition-colors">
+<div class="absolute right-1 top-1 bg-white w-4 h-4 rounded-full shadow-sm"></div>
+</button>
+</div>
+<div class="p-card-padding flex items-center justify-between">
+<div>
+<p class="font-h3 text-[14px]">Birthday Celebration</p>
+<p class="text-text-muted text-[13px]">Show a notification on the team board on your birthday.</p>
+</div>
+<button class="w-10 h-6 bg-surface-container-highest rounded-full relative transition-colors">
+<div class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full shadow-sm"></div>
+</button>
+</div>
+<div class="p-card-padding flex items-center justify-between bg-surface-container-lowest">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error" data-icon="delete">delete</span>
+<div>
+<p class="font-h3 text-[14px] text-error">Request Data Deletion</p>
+<p class="text-text-muted text-[13px]">Permanent removal of all personal PII from company servers.</p>
+</div>
+</div>
+<button class="text-text-secondary font-h3 text-h3 hover:text-error transition-colors">Request</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button - Contextual for Profile Page -->
+<div class="fixed bottom-8 right-8">
+<button class="bg-primary text-on-primary w-14 h-14 rounded-full shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all group">
+<span class="material-symbols-outlined text-[28px]" data-icon="support_agent">support_agent</span>
+<span class="absolute right-16 bg-primary-container text-white px-3 py-1.5 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity">Contact HR Support</span>
+</button>
+</div>
+</body></html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Announcements Feed - Enterprise Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#98805d",
+                    "text-primary": "#0F172A",
+                    "tertiary": "#000000",
+                    "primary-container": "#131b2e",
+                    "surface-container-high": "#eae7e9",
+                    "pending": "#F59E0B",
+                    "surface-variant": "#e4e2e4",
+                    "on-secondary-container": "#54647a",
+                    "secondary": "#505f76",
+                    "outline": "#76777d",
+                    "surface-bright": "#fcf8fa",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "on-primary-container": "#7c839b",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "on-secondary-fixed": "#0b1c30",
+                    "tertiary-fixed": "#fcdeb5",
+                    "primary-fixed-dim": "#bec6e0",
+                    "inverse-on-surface": "#f3f0f2",
+                    "text-secondary": "#475569",
+                    "on-tertiary-fixed": "#271901",
+                    "surface-dim": "#dcd9db",
+                    "tertiary-container": "#271901",
+                    "surface-container": "#f0edef",
+                    "error": "#EF4444",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "on-surface-variant": "#45464d",
+                    "background": "#F8FAFC",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#131b2e",
+                    "outline-variant": "#c6c6cd",
+                    "on-background": "#1b1b1d",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e4e2e4",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f6f3f5",
+                    "text-muted": "#94A3B8",
+                    "inverse-primary": "#bec6e0",
+                    "on-surface": "#1b1b1d",
+                    "inverse-surface": "#303032",
+                    "primary-fixed": "#dae2fd",
+                    "on-secondary": "#ffffff",
+                    "primary": "#000000",
+                    "info": "#3B82F6",
+                    "secondary-container": "#d0e1fb",
+                    "surface": "#FFFFFF",
+                    "border": "#E2E8F0",
+                    "success": "#10B981",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#565e74",
+                    "on-primary-fixed-variant": "#3f465c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-gap": "1rem",
+                    "sidebar-width": "260px",
+                    "gutter": "1.5rem",
+                    "container-max": "1440px",
+                    "card-padding": "1.25rem",
+                    "sidebar-collapsed": "80px"
+            },
+            "fontFamily": {
+                    "h2": ["Geist"],
+                    "h1": ["Geist"],
+                    "data-tabular": ["Geist"],
+                    "body-base": ["Inter"],
+                    "h3": ["Geist"],
+                    "body-sm": ["Inter"],
+                    "label-caps": ["Inter"]
+            },
+            "fontSize": {
+                    "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "data-tabular": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-base": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "h3": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #F8FAFC;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .announcement-card {
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .announcement-card:active {
+            transform: scale(0.995);
+        }
+    </style>
+</head>
+<body class="font-body-base text-text-primary antialiased">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-surface border-r border-border flex flex-col p-gutter">
+<div class="mb-8">
+<h1 class="font-h2 text-h2 text-text-primary">Enterprise Portal</h1>
+<p class="text-text-muted font-body-sm">HR Management System</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Employees</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span>Leaves</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 bg-secondary-container text-on-secondary-container rounded-lg font-h3 text-h3" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span>Announcements</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Team</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined">person</span>
+<span>Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-border flex items-center gap-3">
+<img alt="Organization Logo" class="w-8 h-8 rounded bg-surface-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdTcaorh8rxla8gOAAhcAX4fKxyYtZqDsn2pvs07DMN31AhQ1e_7iBaXiU1KZ5n1yGJ26Z6fpylAHG3Hea-yyhDqdH2bamHGALgs07Ktq9gU7vncwmiHzJjjeqxFXHlKwktyHKA7rzVzh-wOUOwsUhct-37pxYjxIWsO7I8iyaCC3Dk0r4HU9G0jibYLh6lEO6z-pE6Z7q_PY7BmeGRLRvFu_A1hR9Qc66VXm749nMsv_xJJUPL59LMuofQyrDs4o2vmTKdWqhdFje"/>
+<div class="overflow-hidden">
+<p class="font-h3 text-h3 truncate">Acme Corp</p>
+<p class="text-text-muted font-body-sm truncate">Enterprise Tier</p>
+</div>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-260px)] h-16 bg-surface border-b border-border shadow-sm z-10">
+<div class="flex justify-between items-center px-gutter h-full max-w-container-max mx-auto">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-muted text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-1.5 bg-surface-container-low border-transparent focus:border-info focus:ring-0 rounded-lg text-body-base" placeholder="Search announcements..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-text-secondary hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-text-secondary hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="h-8 w-[1px] bg-border mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="font-h3 text-h3 leading-none">Alex Rivera</p>
+<p class="text-text-muted font-body-sm">Senior Designer</p>
+</div>
+<img alt="User Avatar" class="w-9 h-9 rounded-full object-cover border border-border" data-alt="A professional headshot of a young adult male with a friendly expression, wearing a clean, modern navy blue sweater. The background is a soft-focus office interior with warm wooden accents and bright natural daylight. The image is crisp, high-resolution, and perfectly centered." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp-raf_I63TZ3PsBHMv9Tkata4RwZhf6JwGwV576Hoe1Wt9D2sUqOoRri0nhLwzDAgurpcSZODS8zjNcjLDJbcNQ3ruBXHamjYYaY-B7960xQoTHF1yQkZBvBQkttR8RpfSK4w5LTh1q4w_yatLNJZzcoDkv6mqsGOmYkox0zz1rQ9jclhMEmXlmuOYvg-oLOWyw9ozS75GRz5EHnZc6QvytHZAme1dsos9muWnbtOtbL6WB7Rfy6n8FsPMd5MQOlBuW_4L25DX0Ya"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[260px] pt-16 min-h-screen">
+<div class="max-w-4xl mx-auto px-gutter py-10">
+<!-- Page Header -->
+<div class="flex items-end justify-between mb-8">
+<div>
+<h2 class="font-h1 text-h1 text-text-primary">Announcements</h2>
+<p class="text-text-secondary font-body-base mt-1">Stay updated with the latest company news and policy changes.</p>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-4 py-2 text-text-secondary bg-surface border border-border rounded-lg hover:bg-surface-container-low transition-colors font-h3 text-h3">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+                        Filter
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-opacity font-h3 text-h3">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                        New Post
+                    </button>
+</div>
+</div>
+<!-- Feed Content -->
+<div class="space-y-6">
+<!-- Announcement Card 1: Critical -->
+<article class="announcement-card bg-surface border border-border rounded-xl overflow-hidden">
+<div class="p-6">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<img alt="Sarah Jenkins" class="w-10 h-10 rounded-full object-cover" data-alt="A professional portrait of a woman in her late 40s with a confident and kind smile, wearing a professional charcoal grey blazer. She is set against a clean, bright corporate background with soft artificial lighting that highlights her features. The aesthetic is modern and authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMMm2_DDnRZexNE63nywxTP5n5IdCckY9kmuoQwcSZ-WYFJcqSJUtWfq9yjLqRjgqJaeCaIVs048oQo5wb0Qrdtoz4_M3exji0D_uwa8T3s6jvTeU_6MWhVUxwUmolvR46bSQDcPZrhGy-rrl8qv9Zg3Q8enZf7uOGC6-VxD0oR5IebHf9p5Cs7kU6lf1FOW-yWKcTGbOYj8F_895qGIwEJLrwy1tIlIoE4gtLZrUXs4rglw-cHrX8YkV3pld-1pDxW-y4VWhGjf4n"/>
+<div>
+<h4 class="font-h3 text-h3 text-text-primary">Sarah Jenkins</h4>
+<p class="text-text-muted font-body-sm">Director of Operations • 2 hours ago</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-error-container text-on-error-container text-label-caps rounded-full">CRITICAL</span>
+</div>
+<h3 class="font-h2 text-h2 mb-3">Upcoming Platform Maintenance: System Downtime</h3>
+<div class="prose prose-slate max-w-none text-text-secondary font-body-base space-y-3">
+<p>Please be advised that the internal HR and Payroll platforms will be undergoing scheduled maintenance this Saturday, October 14th, from 02:00 AM to 06:00 AM EST. During this window, the portal will be inaccessible.</p>
+<p>We apologize for any inconvenience this may cause. This update is critical for implementing new security protocols and improving overall system stability. Please ensure all time-sensitive tasks are completed before Friday evening.</p>
+</div>
+</div>
+<div class="px-6 py-3 bg-surface-container-low flex items-center justify-between border-t border-border">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1.5 text-text-muted hover:text-info transition-colors font-body-sm">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+                                24
+                            </button>
+<button class="flex items-center gap-1.5 text-text-muted hover:text-info transition-colors font-body-sm">
+<span class="material-symbols-outlined text-[18px]">comment</span>
+                                8
+                            </button>
+</div>
+<button class="text-info font-h3 text-h3 hover:underline">Read full details</button>
+</div>
+</article>
+<!-- Announcement Card 2: Image Content -->
+<article class="announcement-card bg-surface border border-border rounded-xl overflow-hidden">
+<div class="p-6">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<img alt="Marcus Chen" class="w-10 h-10 rounded-full object-cover" data-alt="A portrait of a male executive in his 30s with a sharp, modern haircut, wearing a crisp white dress shirt with no tie. The background is a minimalist, high-end design studio with large windows and soft daylight. The overall tone is clean, professional, and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqiGQneQv_0tAyAsTxJD9sUf8ZrYzPE5nwF04QnmtOTGY2m0ihCkcxcAr3gzuNeSv9M770c7KMMBI7TB_vlarkHF6gmrBulTyb5qH4f6ufGX1NUjyczep31ZmJk_2ZZYiQZ-nTQigXWPOzHe_AE18x1CTDGEdQZgCOTg3nFzqKj0ddjVkMFDQdoOcSdcyUJEcnYJT-pwOopsShB0KhJfwVAH1taosGJ9_vqpUkOhj7sVuK7dtdn7R-Th5n4Do7WITtjdrmq7oABSMz"/>
+<div>
+<h4 class="font-h3 text-h3 text-text-primary">Marcus Chen</h4>
+<p class="text-text-muted font-body-sm">Culture Committee • 5 hours ago</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-label-caps rounded-full">EVENT</span>
+</div>
+<h3 class="font-h2 text-h2 mb-3">Recap: Q3 Team Offsite Highlights</h3>
+<p class="text-text-secondary font-body-base mb-4">A huge thank you to everyone who joined us for last week's offsite! We've uploaded all the photos and the roadmap summary to the shared drive. Here's a quick look at the winning team from the Hackathon challenge.</p>
+<div class="relative aspect-video w-full rounded-lg overflow-hidden bg-surface-container mb-4">
+<img alt="Team Event" class="w-full h-full object-cover" data-alt="A candid, high-energy photo of a diverse group of young professionals laughing and collaborating around a large wooden table in a bright, modern loft office. There are laptops, colorful sticky notes, and coffee mugs scattered about. The lighting is warm and natural, creating a vibrant, productive, and inclusive atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPqWYLr3dz6fc6eaqinf0lDRdqC1ZuOK4sooWLtLesOCHTAwN5HUgNvziZWZSjFi3gNG5ybDzKdGZmlQrg7UAuirS-fwD2xPm2R7LAyICE9v02wpWpMgn-qTupRGZqShaHGE23BxDF2a8HLMxnrAuFgYPix9caotsAmCnTzp0wtep2J_8YJR-lt-xGeHDSkS3XwpfIzgnbeNVW45NNbhtch0QtXqVUscFYEhNbKWaacpv918Z_YVrw_UiI2GGveSJE-7OSNBqDV_yE"/>
+</div>
+</div>
+<div class="px-6 py-3 bg-surface-container-low flex items-center justify-between border-t border-border">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1.5 text-info font-body-sm">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">thumb_up</span>
+                                142
+                            </button>
+<button class="flex items-center gap-1.5 text-text-muted hover:text-info transition-colors font-body-sm">
+<span class="material-symbols-outlined text-[18px]">comment</span>
+                                31
+                            </button>
+</div>
+<div class="flex -space-x-2">
+<img alt="User 1" class="w-6 h-6 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB_So1CIx7d0ypPWRwQZdk-QJTdGIcJw9NOKGYdn6OFcN98v-eUGTvGu_LpTq3HcsfbDubqbT3ErdC_O2xT_O2F6ihQdpSqOCn5pemzb4p-ZaBk09VTFjmglVdo8ZeRnf9mmhs8yIzHD3DCm3fKZ3IFaJiz9acH8vTDpwhyTuY7pjaAsGAF02XQ7hSRFzf2k9S9APLQsjdcwAWNzu0DfnDOMxMMCtU-1Vm_QRtIUdGTvpc0OypXFD9_6an5L7ha_Lx3tW995IZrU3Z"/>
+<img alt="User 2" class="w-6 h-6 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3khaCz6UK4Ubdg5oQaZA-xrUHlp2zlpAUp50-c5BI8PNH-PogLMxYAIAA-qZWbgy7UTF51ptDWp-qmADnNwWclfLmGI4CFKiKfz1x8NQV0q7_nDoFfCr5gDjopa8C2ZMaBr4oOgvUr5swvAMABEbgKfVyiTzOnfXOh2RL4nLCdz1YleSg87YACQV00tsNXja8rc6o5hgg5-eGpEh2Qu6W3XGb2bhvkO4qoNywaveH5J7zvq6FiBkZFillY1QARKA4ndzw6BoGWVQt"/>
+<img alt="User 3" class="w-6 h-6 rounded-full border-2 border-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn5J1l7LSpQJUb4UKChmendasV3tIjiZJT52HGvr-vBpN7pY5BdJsxpFskyp0CixnR0-NlFnVzr2FOKARUR-BW0YnGgS6YX4Z-ht8h9GTZNMmWxDJCBFtqlxUqAPT-22SY49GoNpDwjUP8TLqxXUgVK1VUdAiSYkF2V5pZxfAAdTSNcSDVOSoRaf2EQlvRn9EdbbOc4APiA7kJTaC8sEl86KuvL8IC1WHsIhiZd6K_aiccwPQT3iqHlljEJPcHBS9YtD1onNZyslBi"/>
+<div class="w-6 h-6 rounded-full border-2 border-surface bg-surface-container-high flex items-center justify-center text-[10px] font-bold">+12</div>
+</div>
+</div>
+</article>
+<!-- Announcement Card 3: Standard Policy -->
+<article class="announcement-card bg-surface border border-border rounded-xl overflow-hidden">
+<div class="p-6">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<img alt="David Wilson" class="w-10 h-10 rounded-full object-cover" data-alt="A close-up professional portrait of a man in his late 20s with glasses and a friendly, intelligent expression. He is wearing a minimalist black t-shirt, standing against a neutral light grey studio backdrop. The lighting is balanced and clean, emphasizing a modern tech-professional look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF-RXvCKtb74Ea0ChWyuZC9iK8soDoJi7HRh0lcWCv3qY5T6oXriccWnKYFXhXge5fnifYWC286XlxDoeGYYSK9VyFtkd2TABLGlXm9UlYD2b3Ev-ooNuRapcFSaDzLBNiGiWXDLk2_wOoHOhEiBMaDUX1x8FGWqUCu4eDQzo_1fiiRn6wPux4pBFTs-3wUB3daeP4Eg7VAP13t6lB4xTb1n7rMc2dIbxsKtkPSzxZSUn2MHYeqhnID_dipqQogJ5toc1AUwLQfaSY"/>
+<div>
+<h4 class="font-h3 text-h3 text-text-primary">David Wilson</h4>
+<p class="text-text-muted font-body-sm">People Operations • Yesterday</p>
+</div>
+</div>
+<span class="px-3 py-1 bg-surface-container-highest text-text-secondary text-label-caps rounded-full">INFO</span>
+</div>
+<h3 class="font-h2 text-h2 mb-3">Update to Remote Work Equipment Stipend</h3>
+<p class="text-text-secondary font-body-base">We are excited to announce an increase in the annual remote work equipment stipend. Effective immediately, all full-time employees are eligible for an additional $250 credit towards ergonomic furniture or hardware upgrades. Please see the 'Benefits' tab for instructions on how to claim your reimbursement.</p>
+</div>
+<div class="px-6 py-3 bg-surface-container-low flex items-center justify-between border-t border-border">
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1.5 text-text-muted hover:text-info transition-colors font-body-sm">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+                                89
+                            </button>
+<button class="flex items-center gap-1.5 text-text-muted hover:text-info transition-colors font-body-sm">
+<span class="material-symbols-outlined text-[18px]">comment</span>
+                                12
+                            </button>
+</div>
+<button class="text-info font-h3 text-h3 hover:underline">View policy document</button>
+</div>
+</article>
+<!-- Empty State / End of Feed -->
+<div class="py-12 flex flex-col items-center justify-center text-center">
+<div class="w-16 h-16 bg-surface-container-low rounded-full flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-text-muted text-[32px]">check_circle</span>
+</div>
+<h3 class="font-h2 text-h2 text-text-primary">You're all caught up!</h3>
+<p class="text-text-muted font-body-base max-w-xs mt-2">Check back later for more updates or explore previous archives.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[28px]">edit</span>
+</button>
+</body></html>

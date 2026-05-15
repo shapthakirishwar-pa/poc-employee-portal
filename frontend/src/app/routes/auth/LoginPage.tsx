@@ -1,21 +1,24 @@
-import { LoginForm } from "@/features/auth/components/login-form"
+import { LoginForm, type LoginFormValues } from "@/features/auth/components/login-form"
+import { useAuth } from "@/features/auth/hooks/useAuth"
+import { useCallback } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
 
 export const LoginPage = () => {
-    return (
-        <div className="w-full h-full flex flex-col gap-y-4">
-            <LoginForm />
+    const navigate = useNavigate()
+    const { login } = useAuth()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/dashboard"
 
-            <p className="px-8 text-center text-sm text-muted-foreground">
-                By clicking continue, you agree to our{" "}
-                <a href="#" className="underline underline-offset-4 hover:text-primary">
-                    Terms of Service
-                </a>{" "}
-                    and{" "}
-                <a href="#" className="underline underline-offset-4 hover:text-primary">
-                    Privacy Policy
-                </a>.
-            </p>
-        </div>
+    const handleLogin = useCallback(async (data: LoginFormValues) => {
+        const success = await login(data.email, data.password)
+        if (success) {
+            navigate(from, { replace: true })
+        }
+        return success
+    }, [login, navigate, from])
+
+    return (
+        <LoginForm onSubmit={handleLogin} />
     )
 }
 

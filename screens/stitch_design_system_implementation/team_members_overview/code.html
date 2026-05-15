@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Team Management - Enterprise Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#0b1c30",
+                    "on-primary-fixed": "#131b2e",
+                    "surface-tint": "#565e74",
+                    "on-surface-variant": "#45464d",
+                    "on-error": "#ffffff",
+                    "on-background": "#1b1b1d",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#1b1b1d",
+                    "pending": "#F59E0B",
+                    "inverse-primary": "#bec6e0",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#131b2e",
+                    "secondary-fixed": "#d3e4fe",
+                    "outline-variant": "#c6c6cd",
+                    "on-secondary-container": "#54647a",
+                    "surface-dim": "#dcd9db",
+                    "text-muted": "#94A3B8",
+                    "border": "#E2E8F0",
+                    "surface-bright": "#fcf8fa",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#fcdeb5",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "inverse-surface": "#303032",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f6f3f5",
+                    "on-tertiary-container": "#98805d",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "primary-fixed": "#dae2fd",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "inverse-on-surface": "#f3f0f2",
+                    "background": "#F8FAFC",
+                    "surface-variant": "#e4e2e4",
+                    "text-primary": "#0F172A",
+                    "secondary-container": "#d0e1fb",
+                    "error": "#EF4444",
+                    "surface-container-highest": "#e4e2e4",
+                    "surface-container": "#f0edef",
+                    "info": "#3B82F6",
+                    "primary": "#000000",
+                    "primary-fixed-dim": "#bec6e0",
+                    "surface-container-high": "#eae7e9",
+                    "on-primary-container": "#7c839b",
+                    "tertiary": "#000000",
+                    "error-container": "#ffdad6",
+                    "outline": "#76777d",
+                    "tertiary-container": "#271901",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "success": "#10B981",
+                    "text-secondary": "#475569",
+                    "on-tertiary-fixed": "#271901",
+                    "secondary": "#505f76",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "surface": "#FFFFFF",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sidebar-collapsed": "80px",
+                    "stack-gap": "1rem",
+                    "card-padding": "1.25rem",
+                    "sidebar-width": "260px",
+                    "gutter": "1.5rem",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "h1": ["Geist"],
+                    "h3": ["Geist"],
+                    "data-tabular": ["Geist"],
+                    "body-sm": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "h2": ["Geist"],
+                    "body-base": ["Inter"]
+            },
+            "fontSize": {
+                    "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "h3": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "data-tabular": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "h2": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-base": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-surface border-r border-border flex flex-col p-6">
+<div class="mb-8">
+<h1 class="font-h2 text-h2 text-text-primary">Enterprise Portal</h1>
+<p class="text-body-sm text-text-secondary mt-1">HR Management System</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Employees</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span>Leaves</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span>Announcements</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 bg-secondary-container text-on-secondary-container rounded-lg font-h3 text-h3 active:scale-[0.98] transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span>Team</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:text-text-primary hover:bg-surface-container-low transition-colors rounded-lg font-body-base text-body-base" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[260px] min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-260px)] h-16 bg-surface border-b border-border shadow-sm z-10">
+<div class="flex justify-between items-center px-6 h-full max-w-[1440px] ml-auto">
+<div class="flex items-center gap-4 w-96">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg pl-10 py-2 text-body-base focus:ring-2 focus:ring-info" placeholder="Search team members..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<button class="p-2 text-text-secondary hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-text-secondary hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+<div class="flex items-center gap-3 border-l border-border pl-6">
+<div class="text-right">
+<p class="font-h3 text-h3 leading-none">Sarah Jenkins</p>
+<p class="text-body-sm text-text-muted">Engineering Manager</p>
+</div>
+<img alt="Sarah Jenkins" class="w-10 h-10 rounded-full border border-border" data-alt="A professional headshot of a female manager in a modern corporate setting. She is smiling warmly at the camera, wearing a neutral business-casual blazer. The background is a soft-focus office interior with clean lines, minimalist white furniture, and a touch of greenery, lit with bright, natural daylight to create a clean, high-performance light mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNHVre58H_La9fWd2YhDfgT8Cet7-nwynxuI6tTMFHkzTUFwx3WKiaFX1BowuuslVOMbuyUOlHEo9aRT7KUUUHu682wDMsW9aIyUbkyjp2qgaB1K7nqC1WgFAeephaeIs55DY5oevfUb7eQlYsb2uLqonnwco4_pPgHxoyxABf1zfIzYsgXPXef7Whdt71NMOo0Y2AW_gppANwkP7bsFtSBkA5N88-H98wimmxdGQRCx9MZ0X5sqy8tURebBgA23tI-syq8Lc1KZ-l"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<section class="pt-24 px-8 pb-12 max-w-[1440px] mx-auto">
+<!-- Summary Bar -->
+<div class="flex gap-6 mb-8">
+<div class="flex-1 bg-surface border border-border p-6 rounded-xl shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-label-caps text-text-muted uppercase tracking-wider mb-1">Direct Reports</p>
+<h2 class="font-h1 text-h1">12</h2>
+</div>
+<div class="bg-secondary-container p-3 rounded-lg text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-success text-body-sm">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span>+2 from last quarter</span>
+</div>
+</div>
+<div class="flex-1 bg-surface border border-border p-6 rounded-xl shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-label-caps text-text-muted uppercase tracking-wider mb-1">Active Headcount</p>
+<h2 class="font-h1 text-h1">11</h2>
+</div>
+<div class="bg-success/10 p-3 rounded-lg text-success">
+<span class="material-symbols-outlined" data-icon="person_check">person_check</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-text-muted text-body-sm">
+<span>1 member currently on leave</span>
+</div>
+</div>
+<div class="flex-1 bg-surface border border-border p-6 rounded-xl shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-label-caps text-text-muted uppercase tracking-wider mb-1">Upcoming 1:1s</p>
+<h2 class="font-h1 text-h1">4</h2>
+</div>
+<div class="bg-info/10 p-3 rounded-lg text-info">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-info text-body-sm">
+<span>All scheduled for this week</span>
+</div>
+</div>
+</div>
+<!-- Management Tools -->
+<div class="bg-surface border border-border rounded-xl shadow-sm overflow-hidden">
+<div class="p-6 border-b border-border flex justify-between items-center bg-surface-bright">
+<div class="flex items-center gap-4">
+<h3 class="font-h2 text-h2">Team Directory</h3>
+<span class="bg-surface-container-highest px-2 py-0.5 rounded-full text-label-caps">12 TOTAL</span>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-border rounded-lg text-body-base hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="filter_list">filter_list</span>
+                            Filter
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 border border-border rounded-lg text-body-base hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="download">download</span>
+                            Export
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-lg text-body-base font-h3 active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[20px]" data-icon="person_add">person_add</span>
+                            Add Member
+                        </button>
+</div>
+</div>
+<!-- Table Content -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-label-caps text-text-muted border-b border-border font-semibold">EMPLOYEE</th>
+<th class="px-6 py-4 text-label-caps text-text-muted border-b border-border font-semibold">ID</th>
+<th class="px-6 py-4 text-label-caps text-text-muted border-b border-border font-semibold">ROLE &amp; DEPARTMENT</th>
+<th class="px-6 py-4 text-label-caps text-text-muted border-b border-border font-semibold">STATUS</th>
+<th class="px-6 py-4 text-label-caps text-text-muted border-b border-border font-semibold">LAST 1:1</th>
+<th class="px-6 py-4 text-label-caps text-text-muted border-b border-border font-semibold text-right">ACTIONS</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border">
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Marcus Chen" class="w-10 h-10 rounded-full" data-alt="Close up portrait of a male engineer in his late 20s. He has a focused and friendly expression, wearing a minimalist black t-shirt. The lighting is soft and directional, highlighting his features against a clean, architectural office backdrop with glass partitions and soft warm wood textures, matching a professional corporate light mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFRzQ-ZSSskF5_eUV0lTYpjEP4BsxIVyRvZKDOSNuOvsM03U3NNYgkLo5w_oGzD4S89IFJJ90OTLBJL-3DJ7MJYjxp4zV6iS5cPGsohQz5-NJOcuO2v568t3tos7BlqZJUSEXklsA_S0pk1nr4gxop5bkWjJSCx7TH9sxzXrU-zAMSJuyTzeiNliUWWOTWK5aqvQpeZYtILqnAjjIa9qk2kQvlOXsTkdtJTWrD-HbgIURKVRTOht75lQxW8uLsyeIj5_XrpEsCMMPv"/>
+<div>
+<p class="font-h3 text-h3 text-text-primary">Marcus Chen</p>
+<p class="text-body-sm text-text-muted">marcus.c@enterprise.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-data-tabular font-data-tabular">#EMP-0482</td>
+<td class="px-6 py-4">
+<p class="text-body-base text-text-primary">Senior Developer</p>
+<p class="text-body-sm text-text-muted">Engineering</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-caps bg-success/10 text-success">
+                                        ACTIVE
+                                    </span>
+</td>
+<td class="px-6 py-4 text-data-tabular font-data-tabular">Oct 12, 2023</td>
+<td class="px-6 py-4 text-right">
+<a class="text-info font-h3 text-h3 hover:underline" href="#">View Profile</a>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Elena Rodriguez" class="w-10 h-10 rounded-full" data-alt="A professional portrait of a woman of Hispanic descent, appearing confident and approachable. She is dressed in a smart white blouse. The setting is a bright, high-end office lobby with large windows and marble floors, reflecting a sophisticated, minimalist corporate environment with airy, high-key lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-LdDmY77nzUBoj4q1m0dDNUd8qXufIAPDP16YkEEY7e1HLzpgiDRFXJ0DILWnXzesOSySENGUL4pxjiBW4r9MpY07sSs_Gn-HqxFkEMXyObyE7tVeML-wJU_syFPWHgFX_oIJ-GWiTlnMk1fCvx_R5Yg131ZqO04U1H5mU1s2KeLBE5nWqvRYs7_XT9WLSgy3e5bc7nhbAWEwP7Hm4frSiniV5QMCZoYO-oPx7ky5uDDXDAuMZ72WUNg-ExQNcVrl00cpwTmjXR7A"/>
+<div>
+<p class="font-h3 text-h3 text-text-primary">Elena Rodriguez</p>
+<p class="text-body-sm text-text-muted">elena.r@enterprise.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-data-tabular font-data-tabular">#EMP-0511</td>
+<td class="px-6 py-4">
+<p class="text-body-base text-text-primary">Lead Designer</p>
+<p class="text-body-sm text-text-muted">Design</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-caps bg-pending/10 text-pending">
+                                        ON LEAVE
+                                    </span>
+</td>
+<td class="px-6 py-4 text-data-tabular font-data-tabular">Sep 28, 2023</td>
+<td class="px-6 py-4 text-right">
+<a class="text-info font-h3 text-h3 hover:underline" href="#">View Profile</a>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="David Park" class="w-10 h-10 rounded-full" data-alt="A headshot of a middle-aged male executive of Asian descent. He is wearing a dark navy crew neck sweater. The background is a blurred library or research center with organized shelves, conveying a sense of expertise and reliability. The lighting is balanced and crisp, maintaining a clean light mode professional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuyh4PLBYSTq8aC4o3q86pgBbwp9ldow8QS438xOhJl31N_ImAvst8d-O0RNiIqzna7NKSbLscMjHHWjyymWdZOH3vN4sEyUU9nug-isWY_ffp9LkUtp0X0El0f9imwkcpxpIGeZPD_gByQclv09ruEWzuQI8yhvNqUkc1Hse1uTcWHmjzx_w2OJ63SrDU3vY3imFvY2DWc-5eLShvoqhyxEgiXR9DnWFW9u7Qq32L0l-8ger08M7oZZ5gkn3imCPbrnlWMtjpRQvn"/>
+<div>
+<p class="font-h3 text-h3 text-text-primary">David Park</p>
+<p class="text-body-sm text-text-muted">david.p@enterprise.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-data-tabular font-data-tabular">#EMP-0622</td>
+<td class="px-6 py-4">
+<p class="text-body-base text-text-primary">Fullstack Engineer</p>
+<p class="text-body-sm text-text-muted">Engineering</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-caps bg-success/10 text-success">
+                                        ACTIVE
+                                    </span>
+</td>
+<td class="px-6 py-4 text-data-tabular font-data-tabular">Oct 20, 2023</td>
+<td class="px-6 py-4 text-right">
+<a class="text-info font-h3 text-h3 hover:underline" href="#">View Profile</a>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="Aisha Khan" class="w-10 h-10 rounded-full" data-alt="A portrait of a professional woman wearing a stylish hijab and a cream-colored blazer. She has a pleasant, confident expression. The environment is a modern coworking space with industrial-chic elements like exposed brick and sleek metal lighting fixtures, bathed in bright morning sunlight for a clean, professional vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHt6T59up_eNW6fkY694uaTpt3z8infUhYiymTi83E9YeXG2NKN8Ar5wTU53HmL2dxgcLwq3pLV56dvMdqJ-9Qn3TmCmCRzVO2UifBY2svsKr8ov76gYGhzm-BbbiRRZzOXNqex5xzxT_IWZRKK-IUq1chOYDcM4ReI6DHtoZmkCcb7pctkaS-tIi6xAxu88oo8CRaXl7nC-stE8SY1gy5Q5erlb6UYoYzthlgUN9PGt3yc9HV9vHs_drgh1pbawRf7HTz66gKUnKx"/>
+<div>
+<p class="font-h3 text-h3 text-text-primary">Aisha Khan</p>
+<p class="text-body-sm text-text-muted">aisha.k@enterprise.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-data-tabular font-data-tabular">#EMP-0731</td>
+<td class="px-6 py-4">
+<p class="text-body-base text-text-primary">QA Analyst</p>
+<p class="text-body-sm text-text-muted">Engineering</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-caps bg-success/10 text-success">
+                                        ACTIVE
+                                    </span>
+</td>
+<td class="px-6 py-4 text-data-tabular font-data-tabular">Oct 05, 2023</td>
+<td class="px-6 py-4 text-right">
+<a class="text-info font-h3 text-h3 hover:underline" href="#">View Profile</a>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-h3 text-h3">JS</div>
+<div>
+<p class="font-h3 text-h3 text-text-primary">Jordan Smith</p>
+<p class="text-body-sm text-text-muted">jordan.s@enterprise.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-data-tabular font-data-tabular">#EMP-0809</td>
+<td class="px-6 py-4">
+<p class="text-body-base text-text-primary">Product Designer</p>
+<p class="text-body-sm text-text-muted">Design</p>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-caps bg-success/10 text-success">
+                                        ACTIVE
+                                    </span>
+</td>
+<td class="px-6 py-4 text-data-tabular font-data-tabular">Oct 18, 2023</td>
+<td class="px-6 py-4 text-right">
+<a class="text-info font-h3 text-h3 hover:underline" href="#">View Profile</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Shell -->
+<div class="p-6 border-t border-border flex justify-between items-center bg-surface-bright">
+<p class="text-body-sm text-text-muted">Showing 1 to 5 of 12 members</p>
+<div class="flex gap-2">
+<button class="px-4 py-2 border border-border rounded-lg text-body-base disabled:opacity-50 transition-colors hover:bg-surface-container-low" disabled="">Previous</button>
+<button class="px-4 py-2 border border-border rounded-lg text-body-base bg-surface-container-high font-semibold">1</button>
+<button class="px-4 py-2 border border-border rounded-lg text-body-base hover:bg-surface-container-low">2</button>
+<button class="px-4 py-2 border border-border rounded-lg text-body-base hover:bg-surface-container-low">3</button>
+<button class="px-4 py-2 border border-border rounded-lg text-body-base hover:bg-surface-container-low transition-colors">Next</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

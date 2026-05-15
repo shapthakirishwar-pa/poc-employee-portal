@@ -21,13 +21,13 @@ const employeeSchema = z.object({
 
 export type EmployeeFormValues = z.infer<typeof employeeSchema>
 
-interface AddEmployeeSheetProps {
+interface EmployeeFormProps {
     open: boolean
     onOpenChange: (open: boolean) => void
     onSuccess: () => void
 }
 
-function AddEmployeeSheet({ open, onOpenChange, onSuccess }: AddEmployeeSheetProps) {
+function EmployeeForm({ open, onOpenChange, onSuccess }: EmployeeFormProps) {
     const defaultDate = new Date().toISOString().split("T")[0] // YYYY-MM-DD
     const {
         register,
@@ -128,4 +128,4 @@ function AddEmployeeSheet({ open, onOpenChange, onSuccess }: AddEmployeeSheetPro
     )
 }
 
-export default AddEmployeeSheet
+export default EmployeeForm

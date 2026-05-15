@@ -1,6 +1,6 @@
 import { api, is_MOCK } from "@/lib/axios";
 import type { Employee } from "../types";
-import type { EmployeeFormValues } from "../components/add-employee-sheet";
+import type { EmployeeFormValues } from "../components/employee-form";
 
 export const MOCK_EMPLOYEES: Employee[] = [
   // --- ENGINEERING ---
@@ -52,6 +52,16 @@ export const employeeService = {
 
         const { data } = await api.get<Employee[]>("/employees")
         return data
+    },
+    getEmployeeById: async (employeeId: string): Promise<Employee> => {
+        if (is_MOCK) {
+            await new Promise((resolve) => setTimeout(resolve, 500)) // Simulate network delay
+            const employee = MOCK_EMPLOYEES.find(emp => emp.employeeId === employeeId)
+            if (!employee) {
+                throw new Error("Employee not found")
+            }
+            return { ...employee }
+        }
     },
     createEmployee: async (employee: EmployeeFormValues): Promise<Employee> => {
         if (is_MOCK) {

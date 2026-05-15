@@ -4,11 +4,14 @@ import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
 import { AuthLayout } from "@/components/layouts/auth-layout";
 import { DashboardLayout } from "@/components/layouts/dashboard-layout";
 import ProtectedRoute from "@/features/auth/components/protected-route";
+import { employeeService } from "@/features/employees/services/employee.service";
+import type { Employee } from "@/features/employees/types";
 
 
 const LoginPage = lazy(() => import("./routes/auth/LoginPage"))
 const DashboardPage = lazy(() => import("./routes/dashboard/DashboardPage"))
-const UserManagementPage = lazy(() => import("./routes/dashboard/UserManagementPage"))
+const EmployeeManagementPage = lazy(() => import("./routes/dashboard/EmployeeManagementPage"))
+const EmployeeProfilePage = lazy(() => import("./routes/dashboard/EmployeeProfilePage"))
 
 const router = createBrowserRouter([
     {
@@ -36,24 +39,59 @@ const router = createBrowserRouter([
                 element: <DashboardPage />
             },
             {
-                path: "/admin/users",
-                element: <UserManagementPage />
+                path: "/employees",
+                handle: {
+                    crumb: "Employees"
+                },
+                children: [
+                    {
+                        index: true,
+                        element: <EmployeeManagementPage />
+                    },
+                    {
+                        path: "add",
+                        element: <div>Employee form page - Coming Soon!</div>,
+                        handle: {
+                            crumb: "Add Employee"
+                        }
+                    },
+                    {
+                        path: ":employeeId",
+                        element: <EmployeeProfilePage />,
+                        loader: async ({ params }) => {
+                            return employeeService.getEmployeeById(params.employeeId)
+                        },
+                        handle: {
+                            crumb: (data: Employee) => data?.name || "Profile"
+                        }
+                    },
+                    {
+                        path: ":employeeId/edit",
+                        element: <div>Employee form page - Coming Soon!</div>,
+                        handle: {
+                            crumb: "Edit Employee"
+                        }
+                    }
+                ]
             },
             {
-                path: "/settings",
-                element: (
-                    <div className="p-6">
-                        <h1 className="text-2xl font-bold">Settings</h1>
-                        <p className="text-muted-foreground">Coming soon in Phase 1...</p>
-                    </div>
-                )
+                path: "/leaves",
+                element: <div>Leaves page - Coming Soon!</div>
+            },
+            {
+                path: "/announcements",
+                element: <div>Announcements page - Coming Soon!</div>
+            },
+            {
+                path: "/team",
+                element: <div>Team page - Coming Soon!</div>
             }
         ]
     },
-    {
-        path: "*",
-        element: <Navigate to="/login" replace />
-    }
+    // {
+    //     path: "*",
+    //     element: <Navigate to="/login" replace />
+    // }
 ])
 
 
