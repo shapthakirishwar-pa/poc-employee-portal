@@ -14,6 +14,7 @@ function EmployeeManagementPage() {
     const [deptFilter, setDeptFilter] = useState("all")
     const [roleFilter, setRoleFilter] = useState("all")
 
+
     const resetFilters = () => {
         setSearchTerm("")
         setDeptFilter("all")
@@ -113,7 +114,11 @@ function EmployeeManagementPage() {
             
             {/* Table */}
             <div className='flex-1 min-h-0 bg-card rounded-lg border shadow-sm'>
-                <EmployeeTable employees={employees} loading={loading} error={error} />
+                <EmployeeTable
+                    employees={employees}
+                    loading={loading}
+                    error={error}
+                />
             </div>
         </div>
     )

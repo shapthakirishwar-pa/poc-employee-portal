@@ -1,4 +1,4 @@
-import { TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Briefcase, Mail, MoreHorizontal, ShieldCheck, User } from "lucide-react"
 import type { Employee, UserStatus } from "../types"
@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
 import { useNavigate } from "react-router-dom"
-import { useCallback } from "react"
+import { useCallback, useMemo, useState } from "react"
+import { Pagination, PaginationContent, PaginationItem, PaginationNext, PaginationPrevious } from "@/components/ui/pagination"
 
 
 export default function EmployeeTable({ employees=[], loading, error }) {
@@ -25,27 +26,37 @@ export default function EmployeeTable({ employees=[], loading, error }) {
         }
     }, [])
 
-    
     const statusStyles: Record<UserStatus, string> = {
         ACTIVE: "bg-emerald-50 text-emerald-500 border-emerald-200/60",
         INACTIVE: "bg-gray-100 text-gray-500 border-gray-200/60",
         ON_LEAVE: "bg-amber-50 text-amber-500 border-amber-200/60",
     }
 
+    const [page, setPage] = useState(1)
+    const pageSize = 5
+
+    const totalPages = Math.max(1, Math.ceil(employees.length / pageSize))
+    const safePage = Math.max(1, Math.min(page, totalPages))
+
+    const paginatedEmployees = useMemo(() => {
+        const start = (safePage-1) * pageSize
+        return employees.slice(start, start + pageSize)
+    }, [employees, safePage])
+
     if (loading) return <div className="p-8 text-center">Loading employees...</div>
     if (error) return <div className="p-8 text-center text-destructive">{error}</div>
 
-    const headers = [ "Employee", "ID", "Department", "Role", "Status", "Actions" ]
+    const headers = [ "Employee", "Employee ID", "Department", "Role", "Status", "Actions" ]
 
     return (
-        <div className="relative h-full w-full overflow-auto">
-            <table className="border-separate border-spacing-0 text-sm w-full">
+        <div className="relative h-full w-full">
+            <Table className="w-full overflow-hidden">
                 <TableHeader className="sticky top-0 z-10">
-                    <TableRow className="hover:bg-transparent border-b-0">
+                    <TableRow className="hover:bg-transparent">
                         {headers.map((header) => (
                             <TableHead
                                 key={header}
-                                className="font-bold sticky top-0 z-20 bg-muted/95 backdrop-blur-md border-b transition-colors px-4 py-3 text-left text-muted-foreground uppercase tracking-wider"
+                                className="font-bold sticky top-0 z-20 bg-muted/95 backdrop-blur-md border-b transition-colors p-4 text-left text-muted-foreground uppercase tracking-wider"
                             >
                                 {header}
                             </TableHead>
@@ -53,8 +64,8 @@ export default function EmployeeTable({ employees=[], loading, error }) {
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {employees?.map((emp: Employee) => (
-                        <TableRow key={emp.id} className="hover:bg-muted/40 transition-all duration-200 border-b border-border/50">
+                    {paginatedEmployees?.map((emp: Employee) => (
+                        <TableRow key={emp.id} className="hover:bg-muted/40 transition-all duration-200">
                             <TableCell className="px-4 py-3">
                                 <div className="flex items-center gap-3">
                                     <div className="h-9 w-9 rounded-full bg-primary/10 flex items-center justify-center text-[10px] font-bold text-primary border border-primary/20 shrink-0 shadow-sm">
@@ -128,7 +139,43 @@ export default function EmployeeTable({ employees=[], loading, error }) {
                         </TableRow>
                     ))}
                 </TableBody>
-            </table>
+                <TableFooter className="bg-transparent">
+                    <TableRow>
+                        <TableCell colSpan={4}>
+                            <span className="p-4 text-muted-foreground text-nowrap font-normal text-[13px]">
+                                Showing <span className="text-foreground font-medium">{(page-1)*pageSize + 1}-{Math.min(page * pageSize, employees.length)}</span> of <span className="text-foreground font-medium">{employees.length}</span> employees
+                            </span>
+                        </TableCell>
+                        <TableCell colSpan={2}>
+                            <Pagination>
+                                <PaginationContent>
+                                    <PaginationItem>
+                                        <PaginationPrevious onClick={() => setPage(prev => Math.max(1, prev - 1))} />
+                                    </PaginationItem>
+                                    
+                                    {/* <PaginationItem>
+                                        <PaginationLink>{page}</PaginationLink>
+                                    </PaginationItem>
+                                    <PaginationItem>
+                                        <PaginationLink>{page + 1}</PaginationLink>
+                                    </PaginationItem>
+                                    <PaginationItem>
+                                        <PaginationLink>{page + 2}</PaginationLink>
+                                    </PaginationItem>
+
+                                    <PaginationItem>
+                                        <PaginationEllipsis />
+                                    </PaginationItem> */}
+
+                                    <PaginationItem>
+                                        <PaginationNext onClick={() => setPage(prev => Math.min(prev + 1, totalPages))} />
+                                    </PaginationItem>
+                                </PaginationContent>
+                            </Pagination>
+                        </TableCell>
+                    </TableRow>
+                </TableFooter>
+            </Table>
         </div>
     )
 }

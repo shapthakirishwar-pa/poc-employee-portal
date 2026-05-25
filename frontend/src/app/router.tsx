@@ -12,6 +12,7 @@ const LoginPage = lazy(() => import("./routes/auth/LoginPage"))
 const DashboardPage = lazy(() => import("./routes/dashboard/DashboardPage"))
 const EmployeeManagementPage = lazy(() => import("./routes/dashboard/EmployeeManagementPage"))
 const EmployeeProfilePage = lazy(() => import("./routes/dashboard/EmployeeProfilePage"))
+const AddEmployeePage = lazy(() => import("./routes/dashboard/AddEmployeePage"))
 
 const router = createBrowserRouter([
     {
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
                     },
                     {
                         path: "add",
-                        element: <div>Employee form page - Coming Soon!</div>,
+                        element: <AddEmployeePage />,
                         handle: {
                             crumb: "Add Employee"
                         }

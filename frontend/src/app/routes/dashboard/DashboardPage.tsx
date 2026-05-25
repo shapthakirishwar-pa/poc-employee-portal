@@ -4,10 +4,12 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { useEmployees } from "@/features/employees/hooks/useEmployees"
 import { Megaphone, CalendarDays, Download, EllipsisVerticalIcon, UserCheck, Users, ChevronRight, UserPlus, NotebookPen, ListTodo, CalendarX } from "lucide-react"
 import { useMemo } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 export const DashboardPage = () => {
     const { employees, loading } = useEmployees()
+    const navigate = useNavigate()
 
     const stats = useMemo(() => {
         const totalEmployees = employees.length
@@ -193,7 +195,7 @@ export const DashboardPage = () => {
                         </CardHeader>
                         <CardContent className="space-y-[2cqh] rounded-[1.5cqh]">
                             {/* <p className="text-[2cqh] text-muted-foreground">No Actions Available</p> */}
-                            <Button className="flex justify-between items-center rounded-[1cqh] w-full px-[2cqh] py-[4.5cqh]">
+                            <Button onClick={() => navigate('/employees/add')} className="flex justify-between items-center rounded-[1cqh] w-full px-[2cqh] py-[4.5cqh]">
                                 <div className="flex items-center gap-[2cqh]">
                                     <UserPlus className="size-[3.2cqh] font-bold" />
                                     <span>Add Employee</span>

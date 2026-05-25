@@ -1,4 +1,4 @@
-export const USER_ROLES = [
+export const USER_ROLES: { label: string, value: string }[] = [
     { label: "Employee", value: "EMPLOYEE" },
     { label: "Manager", value: "MANAGER" },
     { label: "Admin", value: "ADMIN" }
